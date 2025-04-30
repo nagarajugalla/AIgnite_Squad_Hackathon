@@ -1,0 +1,132 @@
+<!--<apex:page renderAs="pdf" controller="DynamicPDFController">
+    <h1>Hi {!userName}!</h1>
+    <p>Subject: {!subject}</p>
+    <p>Message: {!body}</p>
+    <br/>
+    <p>Thank you for using our service!</p>
+</apex:page>-->
+<!--<apex:page renderAs="pdf">
+    <h1>Hello {!$CurrentPage.parameters.name}!</h1>
+    <p>Email: {!$CurrentPage.parameters.email}</p>
+    <p>Subject: {!$CurrentPage.parameters.subject}</p>
+    <p>Body: {!$CurrentPage.parameters.body}</p>
+</apex:page>-->
+<apex:page renderAs="pdf" contentType="application/pdf" showHeader="false" applyHtmlTag="false">
+<html>
+    <head>
+       <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+           .header {
+            background-color: #ffffff;
+            color: blue;
+            padding: 10px;
+            text-align: center;
+            border-radius: 6px;
+        }
+
+        logo {
+            width: 100px;
+            float: right;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #f4f4f4;
+            text-align: left;
+            padding: 8px;
+        }
+
+        td {
+            padding: 8px;
+        }
+
+        ul {
+            margin-top: 0;
+            padding-left: 20px;
+        }
+
+           .footer {
+            margin-top: 30px;
+            font-size: 12px;
+        }
+        
+    </style> 
+    </head>
+   
+    
+
+    <div class="header">
+       <apex:image url="{!$Resource.CompanyLogo}" style="height:2%; width: 10%"/> <h2>AarogyaGuard Health Insurance Quotation</h2>
+    </div>
+
+    <!-- Optional Logo (if any) -->
+    <!-- <img src="{!URLFOR($Resource.YourLogo)}" class="logo" /> -->
+
+    <div class="content">
+        <p>Dear <strong>{!$CurrentPage.parameters.name}</strong>,</p>
+
+        <p>We are pleased to provide you with a customized health insurance quote:</p>
+
+        <table>
+            <tr>
+                <th>Plan Offered</th>
+                <!--<td>{!PlanOffered}</td>-->
+                <td>{!$CurrentPage.parameters.leadplan}</td>
+            </tr>
+            <tr>
+                <th>Coverage Amount</th>
+               <!-- <td>{!CoverageAmount}</td>-->
+                <td>{!$CurrentPage.parameters.leadcoverage}</td>
+                
+            </tr>
+            <tr>
+                <th>Annual Premium</th>
+                <td>{!$CurrentPage.parameters.finalamount}</td>
+            </tr>
+        </table>
+
+        <h4 style="margin-top:20px;">Coverage Benefits:</h4>
+        <ul>
+            <li>Cashless treatment across 7000+ hospitals</li>
+            <li>Room rent coverage up to sum insured</li>
+            <li>No room rent restrictions</li>
+            <li>Ambulance cover up to ₹5,000 per hospitalization</li>
+            <li>100% restoration of sum insured</li>
+        </ul>
+
+        <!--<p><strong>Policy Start Date (Tentative):</strong> {!ProposedStartDate}</p>-->
+        <p><strong>Policy Start Date (Tentative):</strong> 28/09/2025</p>
+        <p><strong>Validity of Quote:</strong> 7 days</p>
+
+        <p>Kindly note, the quote is subject to underwriting and health declarations.</p>
+
+        <p>Looking forward to assisting you further.</p>
+
+        <div class="footer">
+            <p>Warm regards,<br/>
+            <strong>AarogyaGaurd Health Insurance</strong><br/>
+           </p>
+        </div>
+    </div>
+   
+ </html>
+</apex:page>
