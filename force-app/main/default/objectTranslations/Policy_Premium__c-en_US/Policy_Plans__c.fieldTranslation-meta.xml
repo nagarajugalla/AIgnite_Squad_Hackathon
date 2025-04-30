@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Policy Plans --></label>
+    <name>Policy_Plans__c</name>
+    <picklistValues>
+        <masterLabel>Basic Health Shield</masterLabel>
+        <translation><!-- Basic Health Shield --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Critical Illness Protect</masterLabel>
+        <translation><!-- Critical Illness Protect --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Family Wellness Plan</masterLabel>
+        <translation><!-- Family Wellness Plan --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Senior Care Gold</masterLabel>
+        <translation><!-- Senior Care Gold --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

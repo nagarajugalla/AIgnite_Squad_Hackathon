@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Policy_Plans__c</fullName>
+    <label>Policy Plans</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Basic Health Shield</fullName>
+                <default>false</default>
+                <label>Basic Health Shield</label>
+            </value>
+            <value>
+                <fullName>Family Wellness Plan</fullName>
+                <default>false</default>
+                <label>Family Wellness Plan</label>
+            </value>
+            <value>
+                <fullName>Senior Care Gold</fullName>
+                <default>false</default>
+                <label>Senior Care Gold</label>
+            </value>
+            <value>
+                <fullName>Critical Illness Protect</fullName>
+                <default>false</default>
+                <label>Critical Illness Protect</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,490 @@
+<apex:page renderAs="pdf" applyHtmlTag="false" showHeader="false"><!--</apex:page> standardController="Opportunity__c" extensions="WeddingTemplate">-->
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <style type="text/css">
+    @page {
+       size:A4 portrait;
+        border: 2px solid #544890;
+        }
+  </style>
+    </head>
+ <!-- <apex:form >
+<c:pdfheaderfooter type="footer" position="RIGHT" showPageNumbers="true" />
+
+<apex:stylesheet value="{!$Resource.chariotlogo12}"/>
+<apex:pageBlock >
+
+<c:pdfheaderfooter type="header" position="center"><br/><br/><br/>
+
+<apex:image url="{!$Resource.companylogo}"/>
+
+</c:pdfheaderfooter><br/><br/><br/><br/><br/><br/>
+ </apex:pageBlock>
+</apex:form>
+
+
+Name:<apex:outputText value="{!Opportunity__c.Contact__r.Salutation}"/>&nbsp;
+<apex:outputText value="{!Opportunity__c.Contact__r.name}"/>,<br/>
+<apex:outputText value="{!Opportunity__c.Account__r.name}"/>,<br/>
+Designation:<apex:outputText value="{!Opportunity__c.Contact__r.Designation__c}"/>,<br/> Address:<br/>
+<apex:outputText value="{!Opportunity__c.Bill_To__r.Street__c}"/>,<br/>
+<apex:outputText value="{!Opportunity__c.Bill_To__r.City__c}"/>,<br/>
+<apex:outputText value="{!Opportunity__c.Bill_To__r.State1__c}"/>,<br/>
+Phone:<apex:outputText value="{!Opportunity__c.Contact__r.Phone}"/>,<br/>
+Mobile Phone:<apex:outputText value="{!Opportunity__c.Contact__r.MobilePhone}"/>,<br/>
+Email:<apex:outputText value="{!Opportunity__c.Contact__r.Email}"/><br/><br/><br/>
+
+      Dear&nbsp; <apex:outputfield value="{!Opportunity__c.Contact__r.Salutation}" />&nbsp; <apex:outputText value="{!Opportunity__c.Contact__r.Name}"/>,<br/>
+      <p>Greetings from Chariot Beach Resorts, Mahabalipuram.</p>
+      <p>Refer email and telecall, we thank you for your enquiry and indeed pleased to note that you have chosen our property for hosting your client’s wedding event and it is an extremely exciting opportunity for us to hold the event.
+      Please be rest assured that we will spare no efforts in making your event a truly memorable and delightful experience.</p>
+      <p>Please note that we have a limited inventory for 70 units comprising of 34 Standard and Deluxe Rooms, 28 Garden Cottages and Sea View Cottages, indoor and outdoor banquet venues.</p>
+      <p>CHARIOT BEACH RESORTS is like a world of its own. Some might even say a perfect world.
+      Located at an elevation, that offers an unmatched panoramic view of the spectacular beach and bay front, the elegantly landscaped resort features sea facing spacious rooms, cottages a few with open to sky showers! and a proudly presenting the bigger swimming pool on the breadth and width of east coast road. No detail has been overlooked and more importantly,
+      is just the way you want.</p>
+     
+<apex:image style="height:200%; width: 100%" url="{!$Resource.WeddingTemplateLogo}"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <table style="width: 100%; layout: fixed;" border="1" cellpadding="0" cellspacing="0" >
+      <tr>
+          <td style="padding-bottom: 10px; width: 25%">Event</td>
+          <td style="padding-bottom: 10px; width: 25%">Wedding</td>
+      </tr>
+      <tr>
+          <td style="padding-bottom: 10px; width: 25%">Check-in date and time</td>
+          <td style="padding-bottom: 10px; width: 25%">{!checkInDate}(standard check in time is 1400 hrs)</td>
+      </tr>
+      <tr>
+          <td style="padding-bottom: 10px; width: 25%">Check-out date and time</td>
+          <td style="padding-bottom: 10px; width: 25%">{!checkOutDate}(Standard check out time is 1200 noon)</td>
+      </tr>
+      <tr>
+          <td style="padding-bottom: 10px; width: 25%">Stay Duration</td>
+          <td style="padding-bottom: 10px; width: 25%">{!opp.No_of_nights__c} Nights / {!opp.No_of_nights__c-1} Days</td>
+      </tr>
+      <tr>
+          <td style="padding-bottom: 10px; width: 25%">No of guests</td>
+          <td style="padding-bottom: 10px; width: 25%">{!opp.No_of_Pax__c}</td>
+      </tr>
+      <tr>
+          <td style="padding-bottom: 10px; width: 25%">No. of rooms / cottages</td>
+          <td style="padding-bottom: 10px; width: 25%">{!opp.No_of_Rooms__c}</td>
+      </tr>
+      </table>
+      <p>Special Rate – Per night on room only basis </p>
+      <table style="width: 100%; layout: fixed;" border="1" cellpadding="0" cellspacing="0">
+        <tr rowspan="2">
+          <td style="padding-bottom: 10px; width: 25%">Room Type</td>
+          <td style="padding-bottom: 10px; width: 25%">Single Occupancy*</td>
+          <td style="padding-bottom: 10px; width: 25%">Double Occupancy*</td>
+          <td style="padding-bottom: 10px; width: 25%">Extra Bed*</td>
+        </tr>
+        <tr >
+        <td style="padding-bottom: 10px; width: 25%">Standard</td>
+        <td rowspan="2"></td>
+        <td rowspan="2"></td>
+        <td rowspan="2"></td>
+        </tr>
+        <tr>
+        <td style="padding-bottom: 10px; width: 25%">Deluxe Garden View</td>
+        </tr>
+        <tr>
+        <td style="padding-bottom: 10px; width: 25%">Deluxe Sea View</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+        <tr>
+        <td style="padding-bottom: 10px; width: 25%">Junior Suite</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+        <tr>
+        <td style="padding-bottom: 10px; width: 25%">Chariot Cottage</td>
+        <td rowspan="2"></td>
+        <td rowspan="2"></td>
+        <td rowspan="2"></td>
+        </tr>
+       
+        <tr>
+        <td style="padding-bottom: 10px; width: 25%">Deluxe Cottage</td>
+        </tr>
+       
+        <tr>
+        <td style="padding-bottom: 10px; width: 25%">Sea View Cottage</td>
+        <td rowspan="2"></td>
+        <td rowspan="2"></td>
+        <td rowspan="2"></td>
+        </tr>
+       
+        <tr>
+        <td style="padding-bottom: 10px; width: 25%">Sea View Suite</td>
+        </tr>
+       
+        <tr>
+        <td style="padding-bottom: 10px; width: 25%">GST</td>
+        <td colspan="3">Rs {!opp.Total_Amount_With_GST__c - opp.Total_Amount_Without_GST__c}</td>
+        </tr>
+        <tr>
+        <td style="padding-bottom: 10px; width: 25%">Total Amount</td>
+        <td colspan="3">Rs {!opp.Base_Total__c}</td>
+        </tr>
+        <tr>
+        <td style="padding-bottom: 10px; width: 25%">Extra Bed</td>
+        <td colspan="3">Rs 1000 Extra per bed.</td>
+        </tr>
+        <tr>
+        <td colspan="4"> Child and Infant Policy<br/>
+        <p>&nbsp;&nbsp;&nbsp;&#x2022;&nbsp;Infant and Children below the age of 5 years will be complimentary sharing the parents room on the
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adult meal plan without any extra bed. If extra bed is required for infants and children below 5 years &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extra bed charges would apply.
+        Note only up to 2 children (including infants) would be allowed per &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;room.<br/>
+        &nbsp;&nbsp;&nbsp;&#x2022;&nbsp;Children between 5 to 9 years sharing parents room will be charged special rate of the adult rate on &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meal plan.<br/>
+        &nbsp;&nbsp;&nbsp;&#x2022;&nbsp;Children above 10 years will be charged @ adult meal rate.<br/></p>
+        </td>
+        </tr>
+      </table><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      The above rate is inclusive of:<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x2022;&nbsp;Welcome Drink on arrival.<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x2022;&nbsp;Accommodation as per the occupancy mentioned above on room only basis.<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x2022;&nbsp;Access to swimming pool in proper attire.<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x2022;&nbsp;Access to beach.<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x2022;&nbsp;Complimentary usage of Wi-Fi.<br/><br/>
+      <b><u>Room type and capacity <br/></u></b> <p>Standard Room, Deluxe Garden View Room, Junior Suite Garden View, Deluxe Sea View Room, Chariot Garden Cottage, Deluxe Garden Cottage, Sea View Cottage and Sea View Suite.
+      Since most of our rooms have 02 large beds, we can comfortably accommodate upto 230 adults on sharing basis as per below details. Extra person rate would apply for 03rd adult irrespective of existing bedding in the room.</p><br/>
+      <u>Rooms in main block</u>
+      <table style="width: 100%; layout: fixed;" border="1" cellpadding="0" cellspacing="0">
+      <tr>
+      <td>Room type</td>
+      <td>Location</td>
+      <td>Number of rooms</td>
+      <td>Maximum Occupancy</td>
+      </tr>
+      <tr>
+      <td>Standard Garden View</td>
+      <td>First Floor (No elevator)</td>
+      <td>04</td>
+      <td>Double (08 adults)</td>
+      </tr>
+      <tr>
+      <td>Deluxe Room Garden View</td>
+      <td>First Floor (No elevator)</td>
+      <td>07</td>
+      <td>Quadruple (28 adults)</td>
+      </tr>
+      <tr>
+      <td>Deluxe Room Sea View</td>
+      <td>First Floor (No elevator)</td>
+      <td>07</td>
+      <td>Quadruple (28 adults)</td>
+      </tr>
+      <tr>
+      <td>Junior Suite Garden View</td>
+      <td>First Floor (No elevator)</td>
+      <td>02</td>
+      <td>Quintuple (10 adults)</td>
+      </tr>
+      <tr>
+      <td>Standard Garden View</td>
+      <td>Ground Floor</td>
+      <td>04</td>
+      <td>Double (08 adults)</td>
+      </tr>
+      <tr>
+      <td>Deluxe Room Garden View</td>
+      <td>Ground Floor</td>
+      <td>10</td>
+      <td>Quadruple (40 adults)</td>
+      </tr>
+      </table><br/><br/>
+      Cottages along the poolside – Ground level / Row type units
+     
+     
+      <table style="width: 100%; layout: fixed;" border="1" cellpadding="0" cellspacing="0">
+      <tr>
+      <td>Cottage type</td>
+      <td>Location</td>
+      <td>Number of rooms</td>
+      <td>Maximum Occupancy</td>
+      </tr>
+      <tr>
+      <td>Chariot Cottage</td>
+      <td>Poolside South facing</td>
+      <td>14</td>
+      <td>Double (28 adults)</td>
+      </tr>
+      <tr>
+      <td>Deluxe Cottage</td>
+      <td>Poolside North Facing</td>
+      <td>14</td>
+      <td>Quadruple (56 adults)</td>
+      </tr>
+      </table><br/><br/>
+      Cottages Sea facing – Ground level / Row type units
+      <table style="width: 100%; layout: fixed;" border="1" cellpadding="0" cellspacing="0">
+      <tr>
+      <td>Cottage type</td>
+      <td>Location</td>
+      <td>Number of rooms</td>
+      <td>Maximum Occupancy</td>
+      </tr>
+      <tr>
+      <td>Sea View Cottage</td>
+      <td>Sea View East Facing</td>
+      <td>04</td>
+      <td>Double (08 adults)</td>
+      </tr>
+      <tr>
+      <td>Sea View Suite</td>
+      <td>Sea View East Facing</td>
+      <td>04</td>
+      <td>Quadruple (16 adults)</td>
+      </tr>
+      </table><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <b>Important Note:</b><br/><br/>
+      CONFERENCE HALL / OUTDOOR VENUE DETAILS AND CHARGES
+      <table style="width: 100%; layout: fixed;" border="1" cellpadding="0" cellspacing="0">
+      <tr>
+      <td>Hall Name/Size</td>
+      <td>Length(in feet)</td>
+      <td>Breadth(in feet)</td>
+      <td>Height(in feet)</td>
+      <td>Maximum Capacity</td>
+      <td>Theatre Style</td>
+      <td>U Shape</td>
+      <td>Cluster</td>
+      <td>Classroom</td>
+      <td>Cost Per 8 hours</td>
+      </tr>
+      <tr>
+      <td>Orchid</td>
+      <td>86.5</td>
+      <td>30</td>
+      <td>9</td>
+      <td>320</td>
+      <td>320</td>
+      <td>81</td>
+      <td>150</td>
+      <td>80</td>
+      <td>Rs. 45000 + 18% GST</td>
+      </tr>
+      <tr>
+      <td>Marigold</td>
+      <td>42.5</td>
+      <td>36</td>
+      <td>9</td>
+      <td>140</td>
+      <td>140</td>
+      <td>36</td>
+      <td>55</td>
+      <td>60</td>
+      <td>Rs. 30000 + 18% GST</td>
+      </tr>
+      <tr>
+      <td>Frangipani</td>
+      <td>55.5</td>
+      <td>19.5</td>
+      <td>9</td>
+      <td>72</td>
+      <td>72</td>
+      <td>32</td>
+      <td>40</td>
+      <td>30</td>
+      <td>Rs. 25000 + 18% GST</td>
+      </tr>
+      <tr>
+      <td>Beachside Lawn</td>
+      <td> </td>
+      <td>-</td>
+      <td>-</td>
+      <td>900</td>
+      <td> </td>
+      <td>-</td>
+      <td>-</td>
+      <td> </td>
+      <td>Rs. 350000 + 18% GST</td>
+      </tr>
+      <tr>
+      <td>Poolside Lawn</td>
+      <td> </td>
+      <td>-</td>
+      <td>-</td>
+      <td>600</td>
+      <td> </td>
+      <td>-</td>
+      <td>-</td>
+      <td> </td>
+      <td>Rs. 175000 + 18% GST</td>
+      </tr>
+      <tr>
+      <td>Rock Garden</td>
+      <td> </td>
+      <td>-</td>
+      <td>-</td>
+      <td>500</td>
+      <td> </td>
+      <td>-</td>
+      <td>-</td>
+      <td> </td>
+      <td>Rs. 150000 + 18% GST</td>
+      </tr>
+      </table><br/><br/>
+      Charges applicable for events like Sangeet, Mehendi etc.. For Lunch / Dinner appropriate hall depending upon number of persons will be provided at no extra cost and hall will be provided only for the respective duration.<br/><br/>
+      Hall usage is subject to terms and conditions, events involving high level physical activities / noise will not be allowed any damage to contents, furnishings, fittings, sound and light equipment and any other equipment on hire or situated at site will be at the responsibility of the booker.<br/><br/>
+     
+      <b>PET POLICY</b><br/>
+      
+      <br/><br/>SPECIAL MEAL RATE (based on vegetarian menu subject to a minimum of 70persons booked together)<br/><br/>
+
+
+<table style="width: 100%; layout: fixed;" border="1" cellpadding="0" cellspacing="0" >
+    <tr>
+        <td style="padding-bottom: 10px; width: 25%">Venue</td>
+        <td style="padding-bottom: 10px; width: 25%">Breakfast</td>
+        <td style="padding-bottom: 10px; width: 25%">Lunch</td>
+        <td style="padding-bottom: 10px; width: 25%">Dinner</td>
+       
+       
+    </tr>
+    <tr>
+         <td style="padding-bottom: 10px; width: 25%">AC Indoor Halls</td>
+        <td style="padding-bottom: 10px; width: 25%">Rs.600 + 18% GST</td>
+        <td style="padding-bottom: 10px; width: 25%">Rs.1350 + 18% GST</td>
+        <td style="padding-bottom: 10px; width: 25%">Rs.1650 + 18% GST</td>
+    </tr>
+     <tr>
+         <td style="padding-bottom: 10px; width: 25%">Beach Side Lawn</td>
+        <td style="padding-bottom: 10px; width: 25%">Rs.1300 + 18% GST</td>
+        <td style="padding-bottom: 10px; width: 25%">Rs.2300 + 18% GST</td>
+        <td style="padding-bottom: 10px; width: 25%">Rs.2700 + 18% GST</td>
+     </tr>
+     
+      <tr>
+         <td style="padding-bottom: 10px; width: 25%">Rock Garden Lawn</td>
+        <td style="padding-bottom: 10px; width: 25%">Rs.650 + 18% GST</td>
+        <td style="padding-bottom: 10px; width: 25%">Rs.1500 + 18% GST</td>
+        <td style="padding-bottom: 10px; width: 25%">Rs.1900 + 18% GST</td>
+     </tr>
+     
+     <tr>
+         <td style="padding-bottom: 10px; width: 25%">Child</td>
+         <td colspan="3">50% discount on adult rate for children aged 06 to 10 years</td>
+     </tr>
+</table><br/><br/><br/><br/><br/><br/><br/>
+             Rates quoted above are on per person basis for normal meal, Rates will vary in case of theme food like Kerala Menu served on Banana leaf or Jain Menu etc.<br/><br/>
+        <b>ARRANGEMENTS / DECORATIONS:</b><br/>
+        Venue arrangements / decorations will be done by you/ third party service provider, however charges for providing electricity will be extra.<br/><br/>
+        <b>COCKTAIL SNACKS:</b><br/>
+        Charges @ Rs.450 + 18% GST per person (2 Non-veg And 2 Veg unlimited for 60 minutes)<br/><br/>
+        <b>COCKTAILS:</b><br/>
+        
+        Indian Spirits, Beer And Accompaniments<br/>
+        Unlimited for 40 minutes @ Rs.1750 + 14.50% VAT per person<br/>
+        CHAMPAGNE And WINE – Will be charged at actual<br/><br/>
+       
+         <b>ENTERTAINMENTS:</b><br/>
+         <table style="width: 100%; layout: fixed;" border="1" cellpadding="0" cellspacing="0">
+         <tr>
+           <td>DJ:</td>
+           <td>Rs.45000 + 18% GST tax per evening.</td>
+         </tr>  
+         <tr>
+           <td>Dance Floor: </td>
+           <td>Rs.20000 + 18% GST per evening.</td>
+         </tr>  
+         <tr>
+           <td>Live Music:  </td>
+           <td>Rs.45000 + 18% GST per evening.</td>
+         </tr>
+         <tr>
+           <td>Juggler: </td>
+           <td>Rs.20000 + 18% GST for 03 hours.</td>
+         </tr>    
+         <tr>
+            <td>Bonfire:</td>
+            <td>Rs.30000 + 18% GST for 02 hours.</td>
+         </tr>                                                      
+         <tr>
+            <td>Folk Dance:</td>
+            <td>Rs.45000 + 18% GST for 04 hours.</td>
+         </tr>                          
+      </table><br/>
+    <b>AUDIO VISUAL AID CHARGES:<br/></b>
+    <table style="width: 100%; layout: fixed;" border="1" cellpadding="0" cellspacing="0">
+    <tr>
+       <td>LCD Projector wit screen charges: </td>
+       <td>Rs.4500 + 18% GST per day</td>
+    </tr>  
+    <tr>
+       <td>PA System with 2 mike charges:</td>
+       <td>Rs.4500 + 18% GST per day</td>
+    </tr>  
+    </table><br/>
+      <b>SIGHTSEING/WATER SPORTS ACTIVITIES:-<br/><br/></b>
+      &nbsp;&#x2022;&nbsp;Halfday Mahabalipuram Monuments visit: Rs. 1500 + GST 18% Per Person including transport, guide and<br/>&nbsp;&nbsp; monument fees (minimum 05 persons)<br/>
+      &nbsp;&#x2022;&nbsp;Halfday visit Sculpture school and shell museum: Rs. 1500 + GST 18% Per Person including transport, escort and<br/>&nbsp;&nbsp; entry fees (minimum 05 persons)<br/>
+      &nbsp;&#x2022;&nbsp;Catamaran Ride (country fishing boat): Rs. 5000 + GST 18% for about 45 minutes (minimum 10 persons)<br/><br/>
+      
+     
+      <b>TERMS AND CONDITIONS:</b><br/><br/>
+      <b>Rooms:</b><br/><br/>
+      &nbsp;&#x2022;&nbsp;The above special rates are per room per night basis, valid for this transaction only.<br/>
+      &nbsp;&#x2022;&nbsp;The above special room rates are Exclusive of GST.<br/>
+      &nbsp;&#x2022;&nbsp;In the event of any increase in taxes levies as per government regulation the same will be applicable.<br/>
+      &nbsp;&#x2022;&nbsp;The rates quoted are non-commissionable and valid for this event only.<br/>
+      &nbsp;&#x2022;&nbsp;Check-in time is 14.00 hours and Check-out time is 12.00 hours.<br/>
+      &nbsp;&#x2022;&nbsp;The rooming list to be given at least one week prior to the date of check-in.<br/><br/>
+      <b>Food and Beverages:</b><br/><br/>
+      &nbsp;&#x2022;&nbsp;Meal rates are exclusive of taxes.<br/>
+      &nbsp;&#x2022;&nbsp;All Ala-Carte order, Room Service, Soft Drinks, Liquor, Laundry, Mineral water bottle, Telephone<br/>&nbsp;&nbsp; Calls etc., will be charged extra as per consumption.<br/>
+      &nbsp;&#x2022;&nbsp;In case of cocktail dinner, snacks will be served only after 19.00 hours in the venue.<br/>
+      &nbsp;&#x2022;&nbsp;Items served in excess of the agreed menu, at the request of the client, would be charged extra.<br/>
+      &nbsp;&#x2022;&nbsp;Liquor, Soft drinks, Soda, Beer to be purchased from the Resort.<br/>
+      &nbsp;&#x2022;&nbsp;Corkage charges for Imported liquor Rs. 950 + VAT 14.5% per bottle. Only IMPORTED LIQUOR will be<br/>&nbsp;&nbsp; permitted. Indian Liquor has to be bought from the resort.<br/>
+      &nbsp;&#x2022;&nbsp;Food shall be prepared only for over 10% above the number of the guests guaranteed. Any deviation<br/>&nbsp;&nbsp; from the same will not meet the standards agreed upon.<br/>
+      &nbsp;&#x2022;&nbsp;For cocktail dinner arrangements: - Indian Liquor, beer, soda, soft drinks, wine, aerated water, bottled<br/>&nbsp;&nbsp; water, juices will be provided only from our end on a chargeable basis.<br/>
+      &nbsp;&#x2022;&nbsp;The hall should be vacated on or before the end time agreed in this contract.<br/>
+      &nbsp;&#x2022;&nbsp;Liquor will be served within the timings specified by the Excise Laws.<br/><br/>
+      <b>Liabilities:-</b><br/><br/>
+      &nbsp;&#x2022;&nbsp;The resort will not accept liability for any damage or loss of merchandise left in the resort, prior to,<br/>&nbsp;&nbsp; during or after the function.<br/>
+      &nbsp;&#x2022;&nbsp;Set ups involving noisy activities like hammering / banging, loud cutting etc., will be planned out in<br/>&nbsp;&nbsp; compliance with the hotel policy. No such activity will be allowed
+      after 21.00 hours in the halls or<br/>&nbsp;&nbsp; lawns.<br/>
+      &nbsp;&#x2022;&nbsp;The management of the Chariot Beach Resort is not Liable for any loss or damage to the client and his<br/>&nbsp;&nbsp; guest’s belongings during the event.<br/>
+      &nbsp;&#x2022;&nbsp;The Client is Liable for any damage caused to the Chariot Beach Resort property / equipment by the<br/>&nbsp;&nbsp; client or by the client’s guests attending the event or the event management company employed by<br/>&nbsp;&nbsp; the client..<br/>
+      &nbsp;&#x2022;&nbsp;The client is responsible for the any damages done to property  in the case o<br/><br/>
+      <b>Permissions required for the events:-</b><br/><br/>
+      &nbsp;&#x2022;&nbsp;Necessary Government Permissions has to be procured by the Host / organizers wherever required for &nbsp;&nbsp;&nbsp;&nbsp;any purpose e.g. fashion shows, DJ, Live performances, Product Launches etc., PPL License would &nbsp;&nbsp;&nbsp;&nbsp;also be required in case of any events.<br/>
+      &nbsp;&#x2022;&nbsp;As per Tamil Nadu Government rules AND regulations for any Live dance performance prior &nbsp;&nbsp;&nbsp;&nbsp;permission would be required from PHONOGRAPHIC PERFORMANCE LICENCEE (PPL) and if &nbsp;&nbsp;&nbsp;&nbsp;the performers are foreign national then the immigration clearance is mandatory.<br/><br/><br/><br/><br/><br/><br/><br/>
+      &nbsp;&#x2022;&nbsp;As per the directive of Honourable Supreme Court of India playing of loud music and Live or recorded &nbsp;&nbsp;&nbsp;&nbsp;musical performance or recitals are not permitted beyond 22.00 hours.<br/>
+      &nbsp;&#x2022;&nbsp;At the venue and the same strictly applicable at the resort. <br/>
+      &nbsp;&#x2022;&nbsp;Fireworks are not permitted in the resort premises. If required, special permission has to be obtain from &nbsp;&nbsp;&nbsp;&nbsp;local authorities and the client is fully responsible for losses /damages at the resort.<br/>
+      &nbsp;&#x2022;&nbsp;Please note as per Tamil Nadu Government rules AND regulations Liquor will be served only till 22.45 &nbsp;&nbsp;&nbsp;&nbsp;hours.<br/><br/>
+
+      <b> Additional Power Supply:-</b><br/><br/>
+      &nbsp;&#x2022;&nbsp;In case of requirement of additional power supply, generator can be brought in by the guest or the same &nbsp;&nbsp;&nbsp;&nbsp;can be organized by the hotel on a chargeable basis.<br/>
+      &nbsp;&#x2022;&nbsp;In case DJ is arranged from outside, generator can be brought in by the guest or the same can be &nbsp;&nbsp;&nbsp;&nbsp;organized by the hotel on a chargeable basis.<br/><br/>
+
+      <b>BILLING:-</b>
+      &nbsp;&#x2022;&nbsp;50% non-refundable advance payment to be made at the time of confirmation.<br/>
+      &nbsp;&#x2022;&nbsp;Balance to be paid 30 days before the commencement of event.<br/>
+      &nbsp;&#x2022;&nbsp;Payment can be made in the form of Company cheque, cash or credit cards will be accepted for &nbsp;&nbsp;&nbsp;&nbsp;payments.<br/><br/>
+      <b>CANCELLATION AND RETENTION POLICY:</b><br/><br/>
+      &nbsp;&#x2022;&nbsp;In the event of cancellation or amendment of the booking after confirmation, it will carry a full &nbsp;&nbsp;&nbsp;&nbsp;reservation charge. Any rooms not utilized will be charged in full.<br/>
+      &nbsp;&#x2022;&nbsp;The confirmation is based on the mode of payment mutually agreed upon.<br/>
+      &nbsp;&#x2022;&nbsp;The entire advance paid would be forfeited if the conference is cancelled after payment of advance.<br/>
+      &nbsp;&#x2022;&nbsp;We shall permit cancellation up to 10% of the total rooms confirmed, 30 days before check-in. &nbsp;&nbsp;&nbsp;&nbsp;Thereafter any rooms cancelled will attract full reservation charges.<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <b>NOTE:-</b>
+      <p>This is only a quote and no reservation is done. Rates quoted are as on date and subject to change  as per the changes  in the event. Confirmation of reservation would be subject to availability at the time of booking. </p>
+      <p>Hope the above is in order and as per your requirement. If you require any assistance or clarification please do not hesitate to contact us.</p>
+      <p>Thanking you once again and assuring you of our best services at all times.</p>
+      <p>Warm Regards,</p>
+      <p>{!opp.Account_Manager__c}</p>
+      <p>Manager Sales {!opp.Manager_Type__c}</p>
+      <p>Mobile: +91 9444992705</p><br/><br/><br/>
+      (Signature)<br/>
+      <apex:outputText value="{!u.name}"/>,<br/>
+      Sales Coordinator,<br/>
+      +91&nbsp;&nbsp;<apex:outputText value="{!u.MobilePhone}"/><br/>
+      E-mail: <u><apex:outputText value="{!u.email}"/></u><br/><br/><br/>
+    <apex:image url="{!$Resource.chariotlogo8}" width="100%" />-->
+</apex:page>
